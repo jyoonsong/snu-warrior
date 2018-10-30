@@ -8,18 +8,11 @@
       "default_popup": "popup.html",
       "default_icon": "icon.png"
     },
-
-    "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
-    },
     
     "content_scripts":   [
       {
         "matches":   [
-                        "http://*/*",
+                        "http://sports.news.naver.com/*",
                         "https://*/*"
                      ],
         "js":        [ 
@@ -31,9 +24,7 @@
 
     "permissions": [
       "tabs", 
-      "activeTab",
-      "<all_urls>",
-      "http://*/*",
-      "https://*/*"
+      "http://sports.news.naver.com/*",
+      "https://sports.news.naver.com/*"
     ]
   }

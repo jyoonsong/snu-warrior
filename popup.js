@@ -159,8 +159,8 @@ function showArticle(data) {
     inject("vipScore", lostTeam.vip.score);
 
     getJosa("ulul", "을/를");
-    getJosa("unun", "이/가");
-    getJosa("iga", "은/는");
+    getJosa("unun", "은/는");
+    getJosa("iga", "이/가");
 
     // remove loading
     document.querySelector("#load").style.opacity = 0
