@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "VisualCrawler",
+    "name": "농구 기사 써주세요",
     "version": "1.0",
-    "description": "Chrome extension to open each of the given urls, take a screenshot, and crawl the attributes of elementFromPoint(x, y)",
+    "description": "슬퍼하지마 NO NO NO 기사써줄게 NO NO NO",
    
     "browser_action": {
       "default_icon": "icon.png"
@@ -10,7 +10,6 @@
 
     "background": {
         "scripts": [
-            "api.js",
             "background.js"
         ],
         "persistent": false
@@ -31,11 +30,8 @@
 
     "permissions": [
       "tabs", 
-      "<all_urls>",
       "activeTab",
-      "storage", 
-      "unlimitedStorage",
-      "downloads",
+      "<all_urls>",
       "http://*/*",
       "https://*/*"
     ]
