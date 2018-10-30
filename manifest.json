@@ -1,0 +1,42 @@
+{
+    "manifest_version": 2,
+    "name": "VisualCrawler",
+    "version": "1.0",
+    "description": "Chrome extension to open each of the given urls, take a screenshot, and crawl the attributes of elementFromPoint(x, y)",
+   
+    "browser_action": {
+      "default_icon": "icon.png"
+    },
+
+    "background": {
+        "scripts": [
+            "api.js",
+            "background.js"
+        ],
+        "persistent": false
+    },
+
+    "content_scripts":   [
+      {
+        "matches":   [
+                        "http://*/*",
+                        "https://*/*"
+                     ],
+        "js":        [ 
+                        "content.js" 
+                     ],
+        "run_at":    "document_idle"
+      }
+    ],
+
+    "permissions": [
+      "tabs", 
+      "<all_urls>",
+      "activeTab",
+      "storage", 
+      "unlimitedStorage",
+      "downloads",
+      "http://*/*",
+      "https://*/*"
+    ]
+  }
