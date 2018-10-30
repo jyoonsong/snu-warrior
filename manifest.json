@@ -5,6 +5,7 @@
     "description": "슬퍼하지마 NO NO NO 기사써줄게 NO NO NO",
    
     "browser_action": {
+      "default_popup": "popup.html",
       "default_icon": "icon.png"
     },
 
@@ -14,7 +15,7 @@
         ],
         "persistent": false
     },
-
+    
     "content_scripts":   [
       {
         "matches":   [
