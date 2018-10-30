@@ -12,8 +12,7 @@
     "content_scripts":   [
       {
         "matches":   [
-                        "http://sports.news.naver.com/*",
-                        "https://*/*"
+                        "http://sports.news.naver.com/*"
                      ],
         "js":        [ 
                         "content.js" 
@@ -23,7 +22,7 @@
     ],
 
     "permissions": [
-      "tabs", 
+      "activeTab", 
       "http://sports.news.naver.com/*",
       "https://sports.news.naver.com/*"
     ]
