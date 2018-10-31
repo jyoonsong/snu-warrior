@@ -35,8 +35,11 @@ function showArticle(data) {
     else if (data.gameInfo.isTurnaround) {
         show( ls[1] );
     }
-    else {
+    else if (lostTeam.vip.score >= 15) {
         show( ls[2] );
+    }
+    else {
+        show( ls[3] );
     }
 
     // general
