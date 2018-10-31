@@ -27,6 +27,18 @@ function showArticle(data) {
     let wonTeam = data.gameInfo.wonTeam;
     let ls;
 
+    // title
+    ls = document.querySelectorAll("#title > span");
+    if (data.gameInfo.isExtended) {
+        show( ls[0] );
+    }
+    else if (data.gameInfo.isTurnaround) {
+        show( ls[1] );
+    }
+    else {
+        show( ls[2] );
+    }
+
     // general
     ls = document.querySelectorAll("#general > span");
     if (data.gameInfo.isTurnaround) {
@@ -137,10 +149,7 @@ function showArticle(data) {
 
     // reaction
     show( document.querySelector("#reaction span") );
-
-    // show title
-    show( document.getElementById("title") );
-
+    
     // show the words
     inject("date", data.gameInfo.date);
     inject("place", data.gameInfo.place);
