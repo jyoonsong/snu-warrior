@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function () {
             chrome.tabs.sendMessage(tabs[0].id, msg, showArticle);
         }
         else {
-            alert("여기 말고 네이버 스포츠 가셔야 돼요!");
+            alert("여기 말고 네이버 스포츠 - 농구 - 일정/결과 - 경기기록 가셔야 돼요!");
         }
     });
   });
