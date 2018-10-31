@@ -3,8 +3,10 @@ window.addEventListener('DOMContentLoaded', function () {
       active: true,
       currentWindow: true
     }, function (tabs) {
+        console.log(tabs);
         if (tabs[0].url.includes("sports.news.naver.com/sports/new/live/index.nhn?category=kbl&gameId=")) {
             let msg = { event: "click" };
+            console.log(tabs[0]);
             chrome.tabs.sendMessage(tabs[0].id, msg, showArticle);
         }
         else {
@@ -15,7 +17,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function showArticle(data) {
     console.log(data);
-    if (data.event != "write") return;
+    if (!data || data.event != "write") {
+        alert("이런, 문제가 생겼네요. 죄송합니다! 새로고침하고 다시 클릭 해주세요!");
+        return;
+    }
     
     // extract variables
     let lostTeam = data.gameInfo.lostTeam;
@@ -150,8 +155,8 @@ function showArticle(data) {
     inject("historyWonPlusOne", parseInt(lostTeam.historyWon) + 1);
     inject("historyLost", lostTeam.historyLost);
 
-    inject("q1", wonTeam.quarters.q1);
-    inject("q4", wonTeam.quarters.q4);
+    inject("q1", lostTeam.quarters.q1);
+    inject("q4", lostTeam.quarters.q4);
     inject("wonTeam-q4", wonTeam.quarters.q4);
     inject("wonTeam-q5", wonTeam.quarters.q5);
 

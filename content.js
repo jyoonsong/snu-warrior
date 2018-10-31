@@ -1,9 +1,10 @@
 (function() {
+    console.log("content script on");
     chrome.runtime.onMessage.addListener(onMessage);
 
     function onMessage(data, sender, response) {
         console.log(sender);
-        if (data.event != "click") return;
+        if (!data || data.event != "click") return;
 
         // game and league info
         let infos = document.getElementById("game_date").innerText.split(" ");

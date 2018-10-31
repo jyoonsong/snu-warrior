@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "농구 기사 써주세요",
-    "version": "1.0",
+    "version": "1.2",
     "description": "슬퍼하지마 NO NO NO 기사써줄게 NO NO NO",
    
     "browser_action": {
@@ -12,6 +12,7 @@
     "content_scripts":   [
       {
         "matches":   [
+                        "https://sports.news.naver.com/*",
                         "http://sports.news.naver.com/*"
                      ],
         "js":        [ 
