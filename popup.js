@@ -178,6 +178,7 @@ function showArticle(data) {
     getJosa("ulul", "을/를");
     getJosa("unun", "은/는");
     getJosa("iga", "이/가");
+    getJosa("waga", "와/과");
 
     // remove loading
     document.querySelector("#load").style.opacity = 0
