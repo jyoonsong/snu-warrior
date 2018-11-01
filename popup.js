@@ -35,7 +35,7 @@ function showArticle(data) {
     else if (data.gameInfo.isTurnaround) {
         show( ls[1] );
     }
-    else if (lostTeam.vip.score >= 15) {
+    else if (lostTeam.vip.score >= 20) {
         show( ls[2] );
     }
     else {

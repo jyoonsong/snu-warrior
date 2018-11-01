@@ -70,12 +70,13 @@
         
         // check vip
         let members = Array.from( lostTeam.ele.querySelectorAll(".tbl_team_lineup tbody tr") );
-        let max = 0;
+        let max = 7;
         let vip = -1;
         members.forEach(function(ele, i) {
             let score = parseInt( ele.querySelector(".score strong").innerHTML );
             if (max < score) {
                 vip = i;
+                max = score;
             }
         });
 
