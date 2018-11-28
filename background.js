@@ -31,12 +31,12 @@ const urls = [
     "16",
     "61",
     "43_1"
-]
+];
+
+let index = 0;
+
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
-    console.log(changeInfo.status);
-    console.log(tab.url);
-    
     if (changeInfo.status == "complete") {
 
         let url = tab.url;
@@ -45,12 +45,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             chrome.tabs.sendMessage(tab.id, {msg: 'haha'});
         }
         else {
-            let changedURL, rand;
-            rand = Math.floor(Math.random() * 32);
-            changedURL = "https://snuwar.io/locations/" + urls[rand];
+            let changedURL = "https://snuwar.io/locations/" + urls[index];
+            index++;
+            if (index > 31) index = 0;
             
             chrome.tabs.update(tab.id, {url: changedURL}, function(t) {
-                console.log("go to " + rand);
+                console.log("go to " + index);
             });
         }
 
@@ -62,14 +62,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
     
-    let changedURL, rand;
-    do {
-        rand = Math.floor(Math.random() * 32);
-        changedURL = "https://snuwar.io/locations/" + urls[rand];
-    } while (sender.tab.url.includes(urls[rand]));
+    let changedURL = "https://snuwar.io/locations/" + urls[index];
+    index++;
+    if (index > 31) index = 0;
     
     chrome.tabs.update(sender.tab.id, {url: changedURL}, function(tab) {
-        console.log("updated to " + rand);
+        console.log("updated to " + index);
     });
 
     // console.log(data);
