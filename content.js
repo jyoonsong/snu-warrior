@@ -6,14 +6,14 @@
 
     function onMessages(data, sender, response) {
         
-        let rand = Math.floor(Math.random() * 21) - 10; // 0 ~ 20 => -10 ~ 10
+        let rand = Math.floor(Math.random() * 22) - 10; // 0 ~ 24 => -12 ~ 12
         
         let img = document.querySelector(".building-image");
         if (img) {
             // loop for clicks (80~90s)
-            for (let i = 0; i < 1000; i++) {
-                let time = 80*i + rand;
-
+            for (let i = 0; i < 2000; i++) {
+                let time = 78*i + rand;
+                
                 setTimeout(function() {
                     img.click();
                 }, time);
@@ -25,7 +25,7 @@
                 chrome.runtime.sendMessage({diff: b-a});
             }
             let a = parseInt( m.innerText );
-            for (let i = 0; i <= 22; i++) {
+            for (let i = 0; i <= 44; i++) {
                 setTimeout(function() {
                     m = Array.from(document.querySelectorAll("#detail_outer span.ng-binding"))[2];
                     let b = m ? parseInt( m.innerText ) : a;

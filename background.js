@@ -54,8 +54,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             });
         }
 
-          
-        
+    }
+    else {
+        console.log(changeInfo);
     }
     
 });
@@ -69,23 +70,5 @@ chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
     chrome.tabs.update(sender.tab.id, {url: changedURL}, function(tab) {
         console.log("updated to " + index);
     });
-
-    // console.log(data);
-
-    // let time = 15000;
-    // if (data.diff == 0) {
-    //     time = 50;
-    // }
-
-    // setTimeout(function() {
-    //     // let changedURL = sender.tab.url;
-    //     // if (!sender.tab.url.includes("locations")) {
-    //         let rand = Math.floor(Math.random() * 22);
-    //         changedURL = "https://snuwar.io/locations/" + urls[rand];
-    //     // }
-    //     chrome.tabs.update(sender.tab.id, {url: changedURL}, function(tab) {
-    //         console.log("updated to " + tab.url);
-    //     });
-    // }, time);
     
 });
